@@ -11,27 +11,21 @@ class Contact extends React.Component {
           <div className="container">
             <NetlifyForm
               className="NetlifyForm"
-              name="Form With Recaptcha"
-              recaptcha={{
-                sitekey: 'my_recaptcha_site_key',
-                size: 'normal'
-              }}
+              name="Contact"
+              data-netlify="true"
+              method="post"
             >
-              {({ loading, error, recaptchaError, success, recaptcha }) => (
+              {({ loading, error, success }) => (
                 <div>
                   {loading && <div>Loading...</div>}
                   {error && (
                     <div>
-                      Your information was not sent. Please try again later.
+                      Your information was not sent. Please try again later.{' '}
+                      {alert('error')}
                     </div>
                   )}
-                  {recaptchaError && (
-                    <div>
-                      Recaptcha did not match. Please make sure the box is
-                      checked.
-                    </div>
-                  )}
-                  {success && <div>Thank you for contacting us!</div>}
+
+                  {success && <div>{alert('success')}</div>}
                   {!loading && !success && (
                     <div>
                       <div className="form-row">
@@ -97,7 +91,6 @@ class Contact extends React.Component {
                           name="message"
                           placeholder="Enter a personal message"
                         />
-                        {recaptcha}
                       </div>
                       <button type="submit" className="btn btn-primary">
                         Submit
