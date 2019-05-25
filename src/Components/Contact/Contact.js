@@ -1,19 +1,47 @@
 import React from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
+
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      number: '',
+      message: ''
+    };
+  }
+
+  /* Here’s the juicy bit for posting the form submission */
+
+  handleSubmit = e => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...this.state })
+    })
+      .then(() => alert('Success!'))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
   render() {
+    const { firstName, lastName, email, number, message } = this.state;
     return (
       <div>
         <section id="sec5" className="demo">
           <h1 id="contact">Let's Talk!</h1>
           <div className="container">
-            <form
-              name="contact"
-              method="post"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-            >
-              <input type="hidden" name="contact" value="contact" />
+            <form onSubmit={this.handleSubmit}>
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label>First Name</label>
@@ -22,8 +50,10 @@ class Contact extends React.Component {
                     className="form-control"
                     id="first-name"
                     placeholder="John"
-                    name="first-name"
+                    name="firstName"
+                    value={firstName}
                     required
+                    onChange={this.handleChange}
                   />
                 </div>
                 <div className="form-group col-md-6">
@@ -33,8 +63,10 @@ class Contact extends React.Component {
                     className="form-control"
                     id="last-name"
                     placeholder="Smith"
-                    name="last-name"
+                    name="lastName"
                     required
+                    value={lastName}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
@@ -48,6 +80,8 @@ class Contact extends React.Component {
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                     name="email"
+                    value={email}
+                    onChange={this.handleChange}
                     required
                   />
                   <small id="emailHelp" className="form-text text-muted">
@@ -62,6 +96,8 @@ class Contact extends React.Component {
                     id="number"
                     placeholder="555-555-5555"
                     name="number"
+                    value={number}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
@@ -73,6 +109,8 @@ class Contact extends React.Component {
                   rows="3"
                   name="message"
                   placeholder="Enter a personal message"
+                  value={message}
+                  onChange={this.handleChange}
                 />
               </div>
               <button type="submit" className="btn btn-primary">
