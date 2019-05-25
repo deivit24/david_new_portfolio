@@ -29,8 +29,8 @@ class Contact extends React.Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...this.state })
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error));
+      .then(() => console.log('Success!'))
+      .catch(error => console.log(error));
 
     e.preventDefault();
   };
@@ -46,6 +46,7 @@ class Contact extends React.Component {
               method={this.state.post}
               data-netlify={this.state.netlify}
             >
+              <input type="hidden" name="form-name" value="Contact" />
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label>First Name</label>
