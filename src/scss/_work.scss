@@ -1,0 +1,127 @@
+#sec4 {
+  padding: 15px 0;
+
+  #work {
+    padding: 20px;
+    color: $second;
+
+    text-transform: uppercase;
+    @include easeOut;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .container-fluid {
+    padding: 20px 0px 100px 0px;
+    background: $third;
+    .projects {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      .boxes {
+        width: 320px;
+        height: auto;
+        border: white 2px solid;
+
+        margin: 1rem;
+        box-shadow: 7px 10px 12px -5px rgba(0, 0, 0, 0.56);
+        text-align: center;
+        background-color: #fff;
+        z-index: 4;
+        border-radius: 5px;
+        transition: all 1s ease-in-out;
+        .image1 {
+          height: 300px;
+          background-image: url('../img/projects/project1.jpg');
+          background-size: 150%;
+          background-repeat: none;
+          background-position: top center;
+
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-position: center;
+            background-size: 160%;
+          }
+        }
+        .image2 {
+          height: 300px;
+          background-image: url('../img/projects/project2.jpg');
+          background-size: 150%;
+          background-repeat: none;
+          background-position: top center;
+
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-position: center;
+            background-size: 160%;
+          }
+        }
+        .image3 {
+          height: 300px;
+          background-image: url('../img/projects/project3.jpg');
+          background-size: 130%;
+          background-repeat: none;
+          background-position: top center;
+
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-position: center;
+            background-size: 140%;
+          }
+        }
+        .image4 {
+          height: 300px;
+          background-image: url('../img/projects/project4.jpg');
+          background-size: 140%;
+          background-repeat: none;
+          background-position: bottom center;
+
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-position: right center;
+          }
+        }
+        .image5 {
+          height: 300px;
+          background-image: url('../img/projects/project5.jpg');
+          background-size: 130%;
+          background-repeat: none;
+          background-position: bottom center;
+
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-position: top center;
+            background-size: 140%;
+          }
+        }
+        .image6 {
+          height: 300px;
+          background-image: url('../img/projects/project6.jpg');
+          background-size: 130%;
+          background-repeat: none;
+          background-position: center;
+
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background-position: right center;
+            background-size: 140%;
+          }
+        }
+        .btn-dark {
+          width: 100%;
+          &:hover {
+            background: $fourth;
+            font-weight: 700;
+          }
+        }
+        .btn-light {
+          width: 100%;
+          &:hover {
+            background: $main-color;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+// ===== Section 1 Start=====
+#sec1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../img/background.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  &:after {
+    background: -webkit-linear-gradient(
+      top,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.8) 80%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0.8) 80%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+
+  #david {
+    padding: 10px;
+    margin: 0px;
+    color: $second;
+    text-transform: uppercase;
+    @include easeOut;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  #contain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 70vh;
+
+    #hello {
+      .Txt-type {
+        border-right: 1px solid white;
+        color: $main-color;
+        font-size: 12rem;
+      }
+    }
+  }
+}
+
+// ===== Section 1 End =====

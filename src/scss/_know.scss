@@ -1,0 +1,49 @@
+#sec3 {
+  background: darken($main-dark, 30);
+  padding: 50px 0px;
+  min-height: 100vh;
+
+  #knowledge {
+    padding: 20px;
+    color: $second;
+
+    text-transform: uppercase;
+    @include easeOut;
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  .container-fluid {
+    h1 {
+      padding: 20px;
+      color: $second;
+
+      text-transform: uppercase;
+      @include easeOut;
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .row {
+      .col-sm-2 {
+        padding: 20px;
+        height: 200px;
+
+        i {
+          font-size: 8rem;
+        }
+      }
+
+      .col-sm-4 {
+        i {
+          font-size: 8rem;
+        }
+
+        .devicon-express-original-wordmark {
+          color: white !important;
+        }
+      }
+    }
+  }
+}

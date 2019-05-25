@@ -1,0 +1,280 @@
+$main-color: #66fcf1;
+$second: #c5c6c7;
+$third: #0b0c10;
+$fourth: #f74e23;
+$main-dark: #45a29e;
+$cardCol: rgb(36, 168, 24);
+$opacity: 0.9;
+$show-home-image: true;
+@import 'hello';
+@import 'bio';
+@import 'mobil';
+@import 'know';
+@import 'work';
+@mixin easeOut {
+  transition: all 0.5s ease-out;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  background: $third;
+  color: set-text($third);
+
+  margin: 0;
+
+  line-height: 1.5;
+  z-index: 4;
+  header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 10%;
+  }
+  section {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    .Scroll {
+      text-align: center;
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      margin-left: -25px;
+      border-left: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-animation: down 1.5s infinite;
+      animation: down 1.5s infinite;
+      box-sizing: border-box;
+    }
+    .Link {
+      font-size: 3em;
+      text-decoration: none;
+      color: $second !important;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .Last {
+      -webkit-transform: rotate(135deg);
+      transform: rotate(135deg);
+      -webkit-animation: up 1.5s infinite;
+      animation: up 1.5s infinite;
+    }
+
+    @-webkit-keyframes down {
+      0% {
+        -webkit-transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes down {
+      0% {
+        transform: rotate(-45deg) translate(0, 0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(-45deg) translate(-20px, 20px);
+        opacity: 0;
+      }
+    }
+
+    // Start of Up arrow
+    @-webkit-keyframes up {
+      0% {
+        -webkit-transform: rotate(135deg) translate(0, 0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        -webkit-transform: rotate(135deg) translate(-20px, 20px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes up {
+      0% {
+        transform: rotate(135deg) translate(0, 0);
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: rotate(135deg) translate(-20px, 20px);
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// menu button
+
+.Menu-btn {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  z-index: 3;
+
+  cursor: pointer;
+  @include easeOut;
+
+  .Btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: ($main-dark);
+    @include easeOut;
+  }
+
+  // Rotate into X with Menu Lines
+
+  &.Close {
+    transform: rotate(180deg);
+
+    .Btn-line {
+      // line 1 rotate
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        background: $third;
+      }
+
+      // line 2 HIde
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      // line 3 rotate
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+        background: $third;
+      }
+    }
+  }
+}
+
+// Menu Overlay
+
+.Menu {
+  z-index: 3;
+  top: 0;
+  width: 100%;
+  opacity: 0.95;
+  visibility: hidden;
+
+  &.Show {
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: darken($second, 5);
+    list-style: none;
+    transform: translate3d(-50%, -100%, 0);
+    @include easeOut;
+
+    &.Show {
+      // slide in from top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //  Branding Side
+  &-branding {
+    background: $main-color;
+    @include easeOut;
+    transform: translate3d(50%, 100%, 0);
+
+    &.Show {
+      transform: translate3d(0, 0, 0);
+    }
+
+    .Portrait {
+      width: 500px;
+      height: 500px;
+      background: url('../img/me.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 50%;
+      border: solid 3px $second;
+    }
+  }
+
+  .Nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.Show {
+      // slide in from top
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $third;
+    }
+  }
+
+  .Nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    color: $third;
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $main-color;
+    }
+  }
+}
+
+// delay each nav item slide by 0.1s
+
+@for$x from 1 through 5 {
+  .Nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}

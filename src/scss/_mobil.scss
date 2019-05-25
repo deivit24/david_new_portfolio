@@ -1,0 +1,123 @@
+// media query mixin
+
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}
+
+@include mediaSm {
+  #sec1 {
+    #david {
+      padding-top: 75px !important;
+      font-size: 2rem !important;
+    }
+
+    #hello {
+      .Txt-type {
+        font-size: 5rem !important;
+      }
+    }
+  }
+  #sec2 {
+    height: auto !important;
+
+    #contain2 {
+      height: 800px !important;
+      padding-bottom: 50px;
+    }
+
+    #about {
+      font-size: 2rem !important;
+    }
+
+    #b1 {
+      height: 220px !important;
+
+      img {
+        margin-top: 10px !important;
+        width: 200px !important;
+        height: 200px !important;
+      }
+    }
+
+    #b2 {
+      height: 200px !important;
+
+      p {
+        font-size: 1rem !important;
+      }
+    }
+
+    #b3 {
+      height: 220px !important;
+
+      p {
+        font-size: 1.3rem !important;
+      }
+    }
+  }
+  #sec3 {
+    #knowledge {
+      font-size: 2rem !important;
+    }
+
+    i {
+      font-size: 8rem !important;
+    }
+
+    h1 {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+// Tablets
+@include mediaMd {
+  .Menu-nav,
+  .Menu-branding {
+    float: none !important;
+    width: 100% !important;
+    min-height: 0 !important;
+
+    &.Show {
+      transform: translate3d(0, 0, 0) !important;
+    }
+  }
+
+  .Menu-nav {
+    height: 75vh !important;
+    transform: translate3d(-100%, 0, 0) !important;
+    font-size: 24px !important;
+  }
+
+  .Menu-branding {
+    height: 25vh !important;
+    transform: translate3d(100%, 0, 0) !important;
+
+    .Portrait {
+      background: url('../img/me.jpg') !important;
+      background-size: cover !important;
+      width: 170px !important;
+      height: 170px !important;
+    }
+  }
+}
