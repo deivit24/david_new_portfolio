@@ -40,6 +40,7 @@ class Contact extends React.Component {
           <h1 id="contact">Let's Talk!</h1>
           <div className="container">
             <form onSubmit={this.handleSubmit} data-netlify="true">
+              <input type="hidden" name="form-name" value="contact" />
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label>First Name</label>
