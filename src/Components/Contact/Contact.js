@@ -7,7 +7,12 @@ class Contact extends React.Component {
         <section id="sec5" className="demo">
           <h1 id="contact">Let's Talk!</h1>
           <div className="container">
-            <form name="contact" netlify>
+            <form
+              name="contact"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label htmlFor="first-name">First Name</label>
