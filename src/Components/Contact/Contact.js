@@ -1,106 +1,51 @@
 import React from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll';
-import NetlifyForm from 'react-netlify-form';
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      number: '',
+      message: '',
+      post: 'POST',
+      netlify: true
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
+  handleSubmit = e => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...this.state })
+    })
+      .then(() => alert('Success!'))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
   render() {
     return (
       <div>
         <section id="sec5" className="demo">
           <h1 id="contact">Let's Talk!</h1>
           <div className="container">
-            <NetlifyForm
-              className="NetlifyForm"
+            <form
               name="Contact"
-              data-netlify="true"
-              method="post"
+              onSubmit={this.handleSubmit}
+              method={this.state.post}
+              data-netlify={this.state.netlify}
             >
-              {({ loading, error, success }) => (
-                <div>
-                  {loading && <div>Loading...</div>}
-                  {error && (
-                    <div>
-                      Your information was not sent. Please try again later.{' '}
-                      {alert('error')}
-                    </div>
-                  )}
-
-                  {success && <div>{alert('success')}</div>}
-                  {!loading && !success && (
-                    <div>
-                      <div className="form-row">
-                        <div className="form-group col-md-6">
-                          <label>First Name</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="first-name"
-                            placeholder="John"
-                            name="firstName"
-                            required
-                          />
-                        </div>
-                        <div className="form-group col-md-6">
-                          <label>Last Name</label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            id="last-name"
-                            placeholder="Smith"
-                            name="lastName"
-                            required
-                          />
-                        </div>
-                      </div>
-                      <div className="form-row">
-                        <div className="form-group col-md-6">
-                          <label>Email address</label>
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="email"
-                            aria-describedby="emailHelp"
-                            placeholder="Enter email"
-                            name="email"
-                            required
-                          />
-                          <small
-                            id="emailHelp"
-                            className="form-text text-muted"
-                          >
-                            We'll never share your email with anyone else.
-                          </small>
-                        </div>
-                        <div className="form-group col-md-6">
-                          <label>Number</label>
-                          <input
-                            type="number"
-                            className="form-control"
-                            id="number"
-                            placeholder="555-555-5555"
-                            name="number"
-                          />
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <label>Personal Message</label>
-                        <textarea
-                          className="form-control"
-                          id="message"
-                          rows="3"
-                          name="message"
-                          placeholder="Enter a personal message"
-                        />
-                      </div>
-                      <button type="submit" className="btn btn-primary">
-                        Submit
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
-            </NetlifyForm>
-            {/* <NetlifyForm name="Contact">
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label>First Name</label>
@@ -110,6 +55,8 @@ class Contact extends React.Component {
                     id="first-name"
                     placeholder="John"
                     name="firstName"
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
                     required
                   />
                 </div>
@@ -121,6 +68,8 @@ class Contact extends React.Component {
                     id="last-name"
                     placeholder="Smith"
                     name="lastName"
+                    value={this.state.lastName}
+                    onChange={this.handleChange}
                     required
                   />
                 </div>
@@ -149,6 +98,8 @@ class Contact extends React.Component {
                     id="number"
                     placeholder="555-555-5555"
                     name="number"
+                    value={this.state.number}
+                    onChange={this.handleChange}
                   />
                 </div>
               </div>
@@ -160,12 +111,14 @@ class Contact extends React.Component {
                   rows="3"
                   name="message"
                   placeholder="Enter a personal message"
+                  value={this.state.message}
+                  onChange={this.handleChange}
                 />
               </div>
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
-            </NetlifyForm> */}
+            </form>
             <div className="icons">
               <a href="https://www.facebook.com/AugieSal" target="a_blank">
                 <i className="fab fa-facebook fa-2x" />
