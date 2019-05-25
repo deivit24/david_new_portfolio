@@ -43,6 +43,7 @@ class Contact extends React.Component {
               onSubmit={this.handleSubmit}
               method="POST"
               data-netlify="true"
+              name="contact"
             >
               <input type="hidden" name="form-name" value="contact" />
               <div className="form-row">
