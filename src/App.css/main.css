@@ -614,9 +614,9 @@
     font-size: 3rem;
     padding-top: 50px;
     padding-bottom: 50px; }
-  #sec5 form {
+  #sec5 .NetlifyForm {
     text-align: left; }
-    #sec5 form label {
+    #sec5 .NetlifyForm label {
       color: white; }
   #sec5 .icons {
     margin-top: 1rem; }
