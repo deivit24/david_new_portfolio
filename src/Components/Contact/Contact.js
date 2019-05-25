@@ -13,6 +13,7 @@ class Contact extends React.Component {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
+              <input type="hidden" name="contact" value="contact" />
               <div className="form-row">
                 <div className="form-group col-md-6">
                   <label>First Name</label>
@@ -22,7 +23,6 @@ class Contact extends React.Component {
                     id="first-name"
                     placeholder="John"
                     name="first-name"
-                    value="contact"
                     required
                   />
                 </div>
@@ -34,7 +34,6 @@ class Contact extends React.Component {
                     id="last-name"
                     placeholder="Smith"
                     name="last-name"
-                    value="contact"
                     required
                   />
                 </div>
@@ -49,7 +48,6 @@ class Contact extends React.Component {
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                     name="email"
-                    value="contact"
                     required
                   />
                   <small id="emailHelp" className="form-text text-muted">
@@ -63,7 +61,6 @@ class Contact extends React.Component {
                     className="form-control"
                     id="number"
                     placeholder="555-555-5555"
-                    value="contact"
                     name="number"
                   />
                 </div>
@@ -75,7 +72,6 @@ class Contact extends React.Component {
                   id="message"
                   rows="3"
                   name="message"
-                  value="contact"
                   placeholder="Enter a personal message"
                 />
               </div>
