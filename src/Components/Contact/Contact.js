@@ -15,31 +15,33 @@ class Contact extends React.Component {
             >
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="first-name">First Name</label>
+                  <label>First Name</label>
                   <input
                     type="text"
                     className="form-control"
                     id="first-name"
                     placeholder="John"
                     name="first-name"
+                    value="contact"
                     required
                   />
                 </div>
                 <div className="form-group col-md-6">
-                  <label htmlFor="last-name">Last Name</label>
+                  <label>Last Name</label>
                   <input
                     type="text"
                     className="form-control"
                     id="last-name"
                     placeholder="Smith"
                     name="last-name"
+                    value="contact"
                     required
                   />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-group col-md-6">
-                  <label htmlFor="email">Email address</label>
+                  <label>Email address</label>
                   <input
                     type="email"
                     className="form-control"
@@ -47,6 +49,7 @@ class Contact extends React.Component {
                     aria-describedby="emailHelp"
                     placeholder="Enter email"
                     name="email"
+                    value="contact"
                     required
                   />
                   <small id="emailHelp" className="form-text text-muted">
@@ -54,23 +57,25 @@ class Contact extends React.Component {
                   </small>
                 </div>
                 <div className="form-group col-md-6">
-                  <label htmlFor="number">Number</label>
+                  <label>Number</label>
                   <input
                     type="number"
                     className="form-control"
                     id="number"
                     placeholder="555-555-5555"
+                    value="contact"
                     name="number"
                   />
                 </div>
               </div>
               <div className="form-group">
-                <label htmlFor="message">Personal Message</label>
+                <label>Personal Message</label>
                 <textarea
                   className="form-control"
                   id="message"
                   rows="3"
                   name="message"
+                  value="contact"
                   placeholder="Enter a personal message"
                 />
               </div>
