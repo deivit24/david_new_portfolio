@@ -435,7 +435,22 @@
   #sec3 i {
     font-size: 8rem !important; }
   #sec3 h1 {
-    font-size: 2rem !important; } }
+    font-size: 2rem !important; }
+  #sec5 {
+    padding-bottom: 100px; }
+    #sec5 #contact {
+      font-size: 1.5rem !important;
+      padding-top: 25px !important;
+      padding-bottom: 25px !important; }
+    #sec5 .icons a {
+      font-size: 20px !important; }
+    #sec5 .Last-Link {
+      bottom: 10px;
+      padding-top: 20px;
+      margin-top: 20px;
+      font-size: 25px; }
+    #sec5 .Last {
+      bottom: 0px; } }
 
 @media screen and (max-width: 768px) {
   .Menu-nav,
@@ -585,6 +600,36 @@
             background: #66fcf1;
             font-weight: 700; }
 
+#sec5 {
+  min-height: 100vh;
+  background: #333;
+  background-image: -webkit-linear-gradient(35deg, #0b0c10, #333);
+  background-image: linear-gradient(35deg, #0b0c10, #333); }
+  #sec5 #contact {
+    padding: 20px;
+    color: #c5c6c7;
+    text-transform: uppercase;
+    transition: all 0.5s ease-out;
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 50px;
+    padding-bottom: 50px; }
+  #sec5 form {
+    text-align: left; }
+    #sec5 form label {
+      color: white; }
+  #sec5 .icons {
+    margin-top: 1rem; }
+    #sec5 .icons a {
+      padding: 0.4rem;
+      color: #fff;
+      z-index: 3;
+      text-decoration: none;
+      font-size: 2rem; }
+      #sec5 .icons a:hover {
+        color: #66fcf1;
+        transition: all 0.5s ease-out; }
+
 * {
   box-sizing: border-box; }
 
@@ -636,6 +681,10 @@ body {
       transform: rotate(135deg);
       -webkit-animation: up 1.5s infinite;
       animation: up 1.5s infinite; }
+    html section .Last-Link,
+    body section .Last-Link {
+      position: absolute;
+      bottom: 80px; }
 
 @-webkit-keyframes down {
   0% {

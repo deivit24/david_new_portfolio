@@ -11,6 +11,7 @@ $show-home-image: true;
 @import 'mobil';
 @import 'know';
 @import 'work';
+@import 'contact';
 @mixin easeOut {
   transition: all 0.5s ease-out;
 }
@@ -68,7 +69,10 @@ body {
       -webkit-animation: up 1.5s infinite;
       animation: up 1.5s infinite;
     }
-
+    .Last-Link {
+      position: absolute;
+      bottom: 80px;
+    }
     @-webkit-keyframes down {
       0% {
         -webkit-transform: rotate(-45deg) translate(0, 0);

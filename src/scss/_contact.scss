@@ -1,0 +1,44 @@
+#sec5 {
+  min-height: 100vh;
+
+  #contact {
+    padding: 20px;
+    color: $second;
+
+    text-transform: uppercase;
+    @include easeOut;
+    text-align: center;
+    font-size: 3rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  background: #333;
+  background-image: -webkit-linear-gradient(35deg, $third, #333);
+  background-image: linear-gradient(35deg, $third, #333);
+
+  form {
+    text-align: left;
+
+    label {
+      color: white;
+    }
+  }
+
+  .icons {
+    margin-top: 1rem;
+
+    a {
+      padding: 0.4rem;
+      color: #fff;
+      z-index: 3;
+      text-decoration: none;
+      font-size: 2rem;
+
+      &:hover {
+        color: $main-color;
+        @include easeOut;
+      }
+    }
+  }
+}
